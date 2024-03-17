@@ -1,0 +1,61 @@
+{
+  "name": "ux-formatter",
+  "displayName": "UxFormatter",
+  "description": "Formatter for quickapp *.ux files.",
+  "version": "0.0.1",
+  "main": "./out/extension.js",
+  "scripts": {
+    "postinstall": "cz init",
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "test": "vscode-test",
+    "package": "vsce package"
+  },
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:ux",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:json",
+    "onLanguage:css"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ux",
+        "extensions": [
+          ".ux",
+          ".UX"
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "UxFormatter",
+      "properties": {
+        "uxformatter.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否开启UxFormatter插件"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.1",
+    "@types/node": "^20.11.27",
+    "@types/vscode": "^1.67.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^2.24.0",
+    "commitizen": "^4.3.0",
+    "cz-emoji-chinese": "^0.3.1",
+    "typescript": "^5.4.2"
+  }
+}

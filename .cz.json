@@ -1,0 +1,11 @@
+{
+  "path": "cz-emoji-chinese",
+  "config": {
+    "cz-emoji-chinese": {
+      "skipQuestions": [
+        "issues",
+        "scope"
+      ]
+    }
+  }
+}
